@@ -2,7 +2,6 @@ package com.bridgelabz.day22;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class AddressBook {
 	private String first;
@@ -16,7 +15,6 @@ public class AddressBook {
 	static ArrayList<PersonDetails> contactBook = new ArrayList<>();
 	Scanner s = new Scanner(System.in);
 	public void readData() {
-		int i ;
 		boolean duplicate;
 		System.out.println("Enter the first name : ");
 		first = s.next();
