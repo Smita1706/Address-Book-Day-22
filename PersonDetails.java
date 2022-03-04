@@ -1,7 +1,5 @@
 package com.bridgelabz.day22;
 
-import com.bridgelabz.AddressBook.AddressBookDay10.AddressBook_UC1;
-
 public class PersonDetails {
 	private String FirstName;
 	private String LastName;
@@ -101,7 +99,7 @@ public class PersonDetails {
 	}
 
 	public static void main(String[] args) {
-		AddressBook_UC1 a = new AddressBook_UC1("riya","jadhav","hadapsar","pune","maharashtra",423345,1234567654,"riya@gmail.com") ;
+		PersonDetails a = new PersonDetails("riya","jadhav","hadapsar","pune","maharashtra",423345,1234567654,"riya@gmail.com") ;
 		a.toString();
 	}
 }
