@@ -7,8 +7,6 @@ public class AddressBookMain {
 	public static void main(String[] args) {
 		int ch;
 		int ans;
-		int count;
-		String state, city;
 		AddressBook c = new  AddressBook();
 		do {
 			System.out.println("Enter the choice : ");
