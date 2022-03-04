@@ -18,6 +18,8 @@ public class AddressBookMain {
 			System.out.println("4.Delete");
 			System.out.println("5.Search By State name");
 			System.out.println("6.Search By City name");
+			System.out.println("7.view By State name");
+			System.out.println("8.View By City name");
 			ch= s.nextInt();
 			switch(ch) {
 			case 1: 
@@ -43,6 +45,16 @@ public class AddressBookMain {
 				System.out.println("\nEnter the city name to display details :- ");
 				city = s.next();
 				c.searchPersonByCity(city);
+				break;
+			case 7:
+				System.out.println("\nEnter the state name :- ");
+				state = s.next();
+				c.viewPersonByState(state);;
+				break;
+			case 8:
+				System.out.println("\nEnter the city name :- ");
+				city = s.next();
+				c.viewPersonByCity(city);;
 				break;
 
 			}System.out.println("Do you want to continue? if yes press '1' ");

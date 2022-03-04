@@ -13,7 +13,7 @@ public class AddressBook {
 	private int zip;
 	private long phoneNo;
 	private String email;
-	static ArrayList<PersonDetails> contactBook = new ArrayList<>();
+	ArrayList<PersonDetails> contactBook = new ArrayList<>();
 	Scanner s = new Scanner(System.in);
 	public void readData() {
 		boolean duplicate;
@@ -33,7 +33,7 @@ public class AddressBook {
 		phoneNo = s.nextLong();
 		System.out.println("Enter the email : ");
 		email = s.next();
-		AddressBook book =new AddressBook();
+		AddressBook book = new AddressBook();
 		duplicate = book.checkDuplicateName( first ,last);
 		if(duplicate == false) {
 			PersonDetails contact = new PersonDetails(first , last , add , city , state , zip , phoneNo , email);
@@ -142,6 +142,23 @@ public class AddressBook {
 				.collect(Collectors.toList());
 		for (PersonDetails contact : list) {
 			System.out.println("First Name: " + contact.getFirstName()+ "  " + contact.getLastName());
+		}
+	}
+	public void viewPersonByState(String state) {
+		ArrayList<PersonDetails> list = (ArrayList<PersonDetails>) contactBook.stream().filter(contactName -> contactName.getState().equals(state))
+				.collect(Collectors.toList());
+		for (PersonDetails contact : list) {
+			System.out.println("Name: " + contact.getFirstName() +" "+ contact.getLastName());
+			System.out.println("State: " + state);
+		}
+	}
+
+	public void viewPersonByCity(String city) {
+		ArrayList<PersonDetails> list = (ArrayList<PersonDetails>) contactBook.stream().filter(contactName -> contactName.getCity().equals(city))
+				.collect(Collectors.toList());
+		for (PersonDetails contact : list) {
+			System.out.println("First Name: " + contact.getFirstName()+ "  " + contact.getLastName());
+			System.out.println("City: " + city);
 		}
 	}
 	public void DisplayContacts() {
