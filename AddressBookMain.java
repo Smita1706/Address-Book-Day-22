@@ -3,10 +3,12 @@ package com.bridgelabz.day22;
 import java.util.Scanner;
 
 public class AddressBookMain {
-	static Scanner s = new Scanner(System.in);
+	
 	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
 		int ch;
 		int ans;
+		String state, city;
 		AddressBook c = new  AddressBook();
 		do {
 			System.out.println("Enter the choice : ");
@@ -14,6 +16,8 @@ public class AddressBookMain {
 			System.out.println("2.Display");
 			System.out.println("3.Edit");
 			System.out.println("4.Delete");
+			System.out.println("5.Search By State name");
+			System.out.println("6.Search By City name");
 			ch= s.nextInt();
 			switch(ch) {
 			case 1: 
@@ -29,6 +33,16 @@ public class AddressBookMain {
 				break;
 			case 4:
 				c.deleteData();
+				break;
+			case 5:
+				System.out.println("\nEnter the state name to display details :- ");
+				state = s.next();
+				c.searchPersonByState(state);
+				break;
+			case 6:
+				System.out.println("\nEnter the city name to display details :- ");
+				city = s.next();
+				c.searchPersonByCity(city);
 				break;
 
 			}System.out.println("Do you want to continue? if yes press '1' ");

@@ -2,6 +2,7 @@ package com.bridgelabz.day22;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class AddressBook {
 	private String first;
@@ -33,7 +34,7 @@ public class AddressBook {
 		System.out.println("Enter the email : ");
 		email = s.next();
 		AddressBook book =new AddressBook();
-		 duplicate = book.checkDuplicateName( first ,last);
+		duplicate = book.checkDuplicateName( first ,last);
 		if(duplicate == false) {
 			PersonDetails contact = new PersonDetails(first , last , add , city , state , zip , phoneNo , email);
 			contactBook.add(contact);
@@ -43,18 +44,18 @@ public class AddressBook {
 			System.out.println("Entered name is exist");
 		}
 	}
-	
-public boolean checkDuplicateName(String first,String last) {
-	int i;
-	boolean duplicate = false ;
-	for(i=0;i<contactBook.size();i++) {
-		if(contactBook.get(i).getFirstName().equals(first)&&contactBook.get(i).getLastName().equals(last)) {
-			duplicate = true;
-			break;
+
+	public boolean checkDuplicateName(String first,String last) {
+		int i;
+		boolean duplicate = false ;
+		for(i=0;i<contactBook.size();i++) {
+			if(contactBook.get(i).getFirstName().equals(first)&&contactBook.get(i).getLastName().equals(last)) {
+				duplicate = true;
+				break;
+			}
 		}
+		return duplicate;
 	}
-	return duplicate;
-}
 	public void editData(String name) {
 		int i,ans;
 		for(i=0;i<contactBook.size();i++) {
@@ -111,7 +112,6 @@ public boolean checkDuplicateName(String first,String last) {
 			else
 				System.out.println("Please enter the correct first name");
 		}
-
 	}
 
 	public void deleteData() {
@@ -129,6 +129,21 @@ public boolean checkDuplicateName(String first,String last) {
 		}
 	}
 
+	public void searchPersonByState(String state) {
+		ArrayList<PersonDetails> list = (ArrayList<PersonDetails>) contactBook.stream().filter(contactName -> contactName.getState().equals(state))
+				.collect(Collectors.toList());
+		for (PersonDetails contact : list) {
+			System.out.println("Name: " + contact.getFirstName() +" "+ contact.getLastName());
+		}
+	}
+
+	public void searchPersonByCity(String city) {
+		ArrayList<PersonDetails> list = (ArrayList<PersonDetails>) contactBook.stream().filter(contactName -> contactName.getCity().equals(city))
+				.collect(Collectors.toList());
+		for (PersonDetails contact : list) {
+			System.out.println("First Name: " + contact.getFirstName()+ "  " + contact.getLastName());
+		}
+	}
 	public void DisplayContacts() {
 		System.out.println("\nContacts Present in Address Book:");
 		for(int i=0;i<contactBook.size();i++) {
