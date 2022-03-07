@@ -3,7 +3,7 @@ package com.bridgelabz.day22;
 import java.util.Scanner;
 
 public class AddressBookMain {
-	
+
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
 		int ch,count;
@@ -70,10 +70,12 @@ public class AddressBookMain {
 				count = c.countPersonsByState(state);
 				System.out.println("Number of persons by state "+state+" is "+count);
 				break;
-
+			case 11:
+				c.sortByFirstName();
+				break;
 			}System.out.println("Do you want to continue? if yes press '1' ");
 			ans = s.nextInt();
 		}while(ans == 1);
-
+		s.close();
 	}
 }

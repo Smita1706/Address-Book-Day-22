@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+
 public class AddressBook {
 	private String first;
 	private String last;
@@ -149,7 +150,8 @@ public class AddressBook {
 				.collect(Collectors.toList());
 		for (PersonDetails contact : list) {
 			System.out.println("Name: " + contact.getFirstName() +" "+ contact.getLastName());
-			System.out.println("State: " + state);
+			System.out.println("State: " + contact.getState());
+			System.out.println("\n");
 		}
 	}
 
@@ -157,8 +159,9 @@ public class AddressBook {
 		ArrayList<PersonDetails> list = (ArrayList<PersonDetails>) contactBook.stream().filter(contactName -> contactName.getCity().equals(city))
 				.collect(Collectors.toList());
 		for (PersonDetails contact : list) {
-			System.out.println("Name: " + contact.getFirstName()+ "  " + contact.getLastName());
-			System.out.println("City: " + city);
+			System.out.println("First Name: " + contact.getFirstName()+ "  " + contact.getLastName());
+			System.out.println("City: " + contact.getCity());
+			System.out.println("\n");
 		}
 	}
 	public int countPersonsByState(String state) {
@@ -183,6 +186,13 @@ public class AddressBook {
 		return count;
 	}
 
+	public void sortByFirstName() {
+		ArrayList<PersonDetails>  sortedList = (ArrayList<PersonDetails>) contactBook.stream().sorted((type1, type2) -> (type1.getFirstName().compareTo(type2.getFirstName()))).collect(Collectors.toList());
+		for (PersonDetails contact : sortedList) {
+			System.out.println("Name: " + contact.getFirstName()+ "  " + contact.getLastName());
+		}
+	}
+	
 	public void DisplayContacts() {
 		System.out.println("\nContacts Present in Address Book:");
 		for(int i=0;i<contactBook.size();i++) {
