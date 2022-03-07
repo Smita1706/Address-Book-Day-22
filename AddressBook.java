@@ -192,6 +192,30 @@ public class AddressBook {
 			System.out.println("Name: " + contact.getFirstName()+ "  " + contact.getLastName());
 		}
 	}
+	public void sortByCity() {
+		ArrayList<PersonDetails>  sortedList = (ArrayList<PersonDetails>) contactBook.stream().sorted((type1, type2) -> (type1.getCity().compareTo(type2.getCity()))).collect(Collectors.toList());
+		for (PersonDetails contact : sortedList) {
+			System.out.println("Name: " + contact.getFirstName()+ "  " + contact.getLastName());
+			System.out.println("City: " + contact.getCity());
+			System.out.println("\n");
+		}
+	}
+	public void sortByState() {
+		ArrayList<PersonDetails>  sortedList = (ArrayList<PersonDetails>) contactBook.stream().sorted((type1, type2) -> (type1.getState().compareTo(type2.getState()))).collect(Collectors.toList());
+		for (PersonDetails contact : sortedList) {
+			System.out.println("Name: " + contact.getFirstName()+ "  " + contact.getLastName());
+			System.out.println("State: " +contact.getState());
+			System.out.println("\n");
+		}
+	}
+	public void sortByZip() {
+		ArrayList<PersonDetails>  sortedList = (ArrayList<PersonDetails>) contactBook.stream().sorted((type1, type2) -> (int)(type1.getZip() - type2.getZip())).collect(Collectors.toList());
+		for (PersonDetails contact : sortedList) {
+			System.out.println("Name: " + contact.getFirstName()+ "  " + contact.getLastName());
+			System.out.println("Zip: " + contact.getZip());
+			System.out.println("\n");
+		}
+	}
 	
 	public void DisplayContacts() {
 		System.out.println("\nContacts Present in Address Book:");

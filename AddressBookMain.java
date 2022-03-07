@@ -22,6 +22,10 @@ public class AddressBookMain {
 			System.out.println("8.View By City name");
 			System.out.println("9.Count Persons By City");
 			System.out.println("10.Count Persons By State");
+			System.out.println("11.Sort by first name");
+			System.out.println("12.Sort by city name");
+			System.out.println("13.Sort by state name");
+			System.out.println("14.Sort by zip code");
 			ch= s.nextInt();
 			switch(ch) {
 			case 1: 
@@ -72,6 +76,15 @@ public class AddressBookMain {
 				break;
 			case 11:
 				c.sortByFirstName();
+				break;
+			case 12:
+				c.sortByCity();;
+				break;
+			case 13:
+				c.sortByState();;
+				break;
+			case 14:
+				c.sortByZip();
 				break;
 			}System.out.println("Do you want to continue? if yes press '1' ");
 			ans = s.nextInt();
