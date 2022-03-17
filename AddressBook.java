@@ -1,9 +1,14 @@
 package com.bridgelabz.day22;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.Collectors;
-
 
 public class AddressBook {
 	private String first;
@@ -223,4 +228,28 @@ public class AddressBook {
 			System.out.println(contactBook.get(i));
 		}
 	}
+	
+	 public void writeData() {
+	        StringBuffer personBuffer = new StringBuffer();
+	        contactBook.forEach(person -> {
+	            String personDataString = person.toString().concat("\n");
+	            personBuffer.append(personDataString);
+	        });
+	        try {
+	            Files.write(Paths.get("Data.txt"), personBuffer.toString().getBytes());
+
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	    }
+
+	    public void readFileData() {
+	        try {
+	            Files.lines(new File("Data.txt").toPath()).map(String::trim).forEach(System.out::println);
+
+	        } catch (IOException e) {
+	            e.printStackTrace();
+
+	        }
+	    }
 }
