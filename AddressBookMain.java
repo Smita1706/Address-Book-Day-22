@@ -28,6 +28,8 @@ public class AddressBookMain {
 			System.out.println("14.Sort by zip code");
 			System.out.println("15.Write data to file");
 			System.out.println("16.Read data from file");
+			System.out.println("17.Write data to csv file");
+			System.out.println("18.Read data from csv file");
 			ch= s.nextInt();
 			switch(ch) {
 			case 1: 
@@ -80,19 +82,25 @@ public class AddressBookMain {
 				c.sortByFirstName();
 				break;
 			case 12:
-				c.sortByCity();;
+				c.sortByCity();
 				break;
 			case 13:
-				c.sortByState();;
+				c.sortByState();
 				break;
 			case 14:
 				c.sortByZip();
 				break;
 			case 15:
-				c.writeData();;
+				c.writeData();
 				break;
 			case 16:
-				c.readData();;
+				c.readData();
+				break;
+			case 17:
+				c.writeDataCSV();
+				break;
+			case 18:
+				c.readFileDataCSV();
 				break;
 			}System.out.println("Do you want to continue? if yes press '1' ");
 			ans = s.nextInt();
